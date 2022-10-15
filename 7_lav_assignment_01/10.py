@@ -7,10 +7,18 @@ def create_new_string(s):
     s = s.replace('.', "")
 
     split_string = s.split()
+    print(split_string)
 
-    filtered_words = [split_string[i + 1]  for i in range(len(split_string)) if split_string[i].lower() in a or split_string[i] in a]
+    out_put = ""
 
-    return "".join([" " + i for i in filtered_words])[1 : ]
+    for i in a:
+        for j in range(len(split_string) - 1, -1, -1):
+            if i.lower() == split_string[j].lower():
+                out_put += split_string[j + 1] + " "
+                break
+
+    return out_put.rstrip(out_put[-1])
+
 
 output = create_new_string(s)
 
