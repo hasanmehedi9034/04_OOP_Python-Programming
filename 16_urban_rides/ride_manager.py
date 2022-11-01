@@ -5,9 +5,15 @@ class RideManager:
         self.__available_cng = []
         self.__available_bikes = []
         
-    def find_a_vehicle(self):
-        pass
-    
+    def find_a_vehicle(self, rider, vehicle_type, destination):
+        if vehicle_type =='car':
+            if len(self.__available_cars) == 0:
+                print('Sorry no cars available now!')
+                return False
+            
+            for car in self.__available_cars:
+                pass
+                
     def get_available_cars(self):
         return self.__available_cars
     
