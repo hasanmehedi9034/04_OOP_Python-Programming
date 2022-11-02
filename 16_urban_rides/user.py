@@ -4,6 +4,13 @@ from vehicles import CNG, Car, Bike
 from ride_manager import uber
 from random import randint
 
+class UserAlreadyExists(Exception):
+    def __init__(self, email, *args):
+        print('user already exists {email}')
+        super().__init__(*args)
+        # self.email = email
+
+
 license_authority = BRTA()
 
 class User:
@@ -12,11 +19,19 @@ class User:
         self.email = email
         
         pwd_encrypted = hashlib.md5(password.encode()).hexdigest()
-                
-        with open('users.txt', 'a') as  file:
-            file.write(f'{email} {pwd_encrypted}\n')
+        
+        already_exists = False
+        with open('users.txt', 'r') as file:
+            if  email in file.read():
+                already_exists = True
+                # raise UserAlreadyExists(email)
         file.close()
-        print(self.name, 'user created')
+        
+        if already_exists == False:
+            with open('users.txt', 'a') as  file:
+                file.write(f'{email} {pwd_encrypted}\n')
+            file.close()
+            print(self.name, 'user created')
         
     @staticmethod
     def log_in(email, password):
@@ -95,21 +110,21 @@ class Driver(User):
                   
 rider1 = Rider('Rider 1', 'rider1@gmail.com', 'rider 1', randint(0, 100), 5000)
 rider2 = Rider('Rider 2', 'rider2@gmail.com', 'rider 2', randint(0, 100), 5500)
-rider3 = Rider('Rider 3', 'rider2@gmail.com', 'rider 3', randint(0, 100), 5500)
+rider3 = Rider('Rider 3', 'rider3@gmail.com', 'rider 3', randint(0, 100), 5500)
 
 driver1 = Driver('driver 1', 'driver1@gmail.com', 'driver1', randint(0, 100), 5000)
 driver1.take_driving_test()
 driver1.register_a_vehicle('car', 1234, 10)
 
-driver2 = Driver('driver 2', 'driver1@gmail.com', 'driver2', randint(0, 100), 5000)
+driver2 = Driver('driver 2', 'driver2@gmail.com', 'driver2', randint(0, 100), 5000)
 driver2.take_driving_test()
 driver2.register_a_vehicle('car', 1234, 10)
 
-driver3 = Driver('driver 3', 'driver1@gmail.com', 'driver3', randint(0, 100), 5000)
+driver3 = Driver('driver 3', 'driver3@gmail.com', 'driver3', randint(0, 100), 5000)
 driver3.take_driving_test()
 driver3.register_a_vehicle('car', 1234, 10)
 
-driver4 = Driver('driver 4', 'driver1@gmail.com', 'driver4', randint(0, 100), 5000)
+driver4 = Driver('driver 4', 'driver4@gmail.com', 'driver4', randint(0, 100), 5000)
 driver4.take_driving_test()
 driver4.register_a_vehicle('car', 1234, 10)
 
