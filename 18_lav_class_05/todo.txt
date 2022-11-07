@@ -1,0 +1,5 @@
+1. Attributes validation using assertions
+2. Dynamic Attributes
+3. Create classes from json in filesystem
+4. Multiple inheritance and MRO(Method resolution order)
+5. Duck typing
