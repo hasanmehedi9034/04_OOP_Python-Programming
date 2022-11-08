@@ -37,8 +37,11 @@ class AllAirports:
                 print(e)
             self.airports = airports
         file.close()
+        
+        # print(currentcy_rates)
+        # print(country_currency)
             
-        for airport in self.airports.items():
-            print(airport)
+        # for airport in self.airports.items():
+        #     print(airport)
         
 AllAirports()
