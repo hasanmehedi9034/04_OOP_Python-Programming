@@ -8,5 +8,20 @@ class Aircraft:
     def get_make(self):
         return self.make
     
+    def get_flight_range(self):
+        return self.flight_range
+    
     def __repr__(self):
-        return f'Aircraft make: {self.make} code: {self.code} type: {self.typ} range: {self.range}'
+        return f'Aircraft make: {self.make} code: {self.code} type: {self.typ} range: {self.flight_range}'
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
