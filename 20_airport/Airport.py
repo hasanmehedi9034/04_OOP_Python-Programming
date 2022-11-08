@@ -4,9 +4,9 @@ class Airport:
         self.city = city
         self.name = name
         self.country = country
-        self.lat = lat
-        self.long = long
-        self.rate = rate
+        self.lat = float(lat)
+        self.long = float(long)
+        self.rate = float(rate)
         
     def __repr__(self):
         return f'Airport: {self.name} in: {self.country} lat: {self.lat} long: {self.long} rate: {self.rate}'

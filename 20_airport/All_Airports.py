@@ -35,7 +35,7 @@ class AllAirports:
                     rate = currentcy_rates[currency]
                     airports[line[4]] = Airport(line[4], line[1], line[2], line[3], line[6], line[7], rate)
             except KeyError as e:
-                print(e)
+                print('key not found', e)
             self.airports = airports
         file.close()
         
@@ -58,5 +58,21 @@ class AllAirports:
         distance = radius * c
         
         return distance
+    
+    def distance_between_two_airports(self, airport1_code, airport2_code):
+        airport1 = self.airports[airport1_code]
+        airport2 = self.airports[airport2_code]
         
-AllAirports()
+        distance = self.get_distance_betweet_two_airports(airport1.lat, airport1.long, airport2.lat, airport2.long)
+        return distance
+    
+    def get_ticket_price(self, start, end):
+        distance = self.distance_between_two_airports(start, end)
+        airport1 = self.airports[start]
+        fare = distance * airport1.rate
+        
+        return fare
+        
+world_tour = AllAirports()
+fare = world_tour.get_ticket_price('DAC', 'PRA')
+print('Ticket Fare', fare)
