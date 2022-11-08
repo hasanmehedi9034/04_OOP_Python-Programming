@@ -1,3 +1,4 @@
+from math import radians, sin, cos, atan2, sqrt
 import csv
 from  Airport import Airport
 
@@ -43,5 +44,19 @@ class AllAirports:
             
         # for airport in self.airports.items():
         #     print(airport)
+        
+    def get_distance_betweet_two_airports(self, lat1, long1, lat2, long2):
+        radius = 6371
+        
+        lat_diff = radians(lat1 - lat2)
+        lon_diff = radians(long1 - long2)
+        
+        arc = (sin(lat_diff / 2) * sin(lat_diff / 2) + 
+               cos(radians(lat1)) *  cos(radians(lat2)) * 
+               sin(lon_diff / 2) * sin(lon_diff / 2))
+        c = 2 * atan2(sqrt(arc), sqrt(1 - arc))
+        distance = radius * c
+        
+        return distance
         
 AllAirports()
