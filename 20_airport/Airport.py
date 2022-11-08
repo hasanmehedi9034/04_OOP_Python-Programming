@@ -9,7 +9,7 @@ class Airport:
         self.rate = rate
         
     def __repr__(self):
-        return f'Airport: {self.name} in: {self.country} lat: {self.lat} long: {self.long}'
+        return f'Airport: {self.name} in: {self.country} lat: {self.lat} long: {self.long} rate: {self.rate}'
     
     
     
