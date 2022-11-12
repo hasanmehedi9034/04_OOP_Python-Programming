@@ -12,6 +12,9 @@ class TravelAgent:
     def set_trip_multi_city_one_way(self):
         pass
     
+    def set_multi_city_round(self):
+        pass
+    
     def __repr__(self):
         return f'TravelAgent: {self.name}'  
     
