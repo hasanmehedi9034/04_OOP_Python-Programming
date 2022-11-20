@@ -22,17 +22,13 @@ class CNG:
     def get_fare(self, distance):
         return distance * self.rate
     
-    
-    
-b1 = Bike('Masud', 5)
-c1 = Car('Mahbub', 10)
-g1 = CNG('Karim', 8)
 
-customers = [20, 14, 16]
-
-for distance in customers:
-    print(b1.get_fare(distance))        
-    print(c1.get_fare(distance))
-    print(g1.get_fare(distance))
-    print()
+def Factory(vehicle_type):
+    vehicles = {
+        'car': Car,
+        'bike': Bike,
+        'cng': CNG
+    }
+    return vehicles[vehicle_type]()
         
+# factory method (google)
