@@ -1,4 +1,4 @@
-# what is a design pattern (google)
+# what is a design pattern (google, refactorguru)
 # what is singleton (google)
 
 class Singleton:
