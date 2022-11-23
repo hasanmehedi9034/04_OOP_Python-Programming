@@ -39,7 +39,7 @@ csv_field = ['version', 'price']
 
 with open('iphone_price.csv', 'w', newline="") as csv_file:
     csv_writter = csv.writer(csv_file)
-    # csv_writter.writerows(csv_field)
+    csv_writter.writerow(csv_field)
     
     for key, value in iphone_price_dict.items():
         csv_writter.writerow([key, value]) 
