@@ -10,7 +10,11 @@ lst[3][2][2][2].append(13)
 # print(lst[3][2][2][2])
 
 small_list = [1, 2, 3, 4]
-print(small_list[: : -1])
+# print(small_list[: : -1])
 
 
 
+f = []
+f.append('Mehedi')
+f.append('Hasan')
+print(f'First Name: {f[0]}\nLast Name: {f[1]}')

@@ -27,13 +27,13 @@ new_s = list(map(lambda x : x.upper(), string_list))
 from functools import reduce
 lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 sum = reduce(lambda x, y: x + y, lst)
-print(sum)
+# print(sum)
 
 
 
 
-
-
+print_greetings = lambda : (print("Hello", end=" "), print("Mehedi", end=" "))
+print_greetings()
 
 
 
