@@ -17,14 +17,15 @@ def hello():
 
 @app.route("/add", methods=['GET', "POST"])
 def add():
-    students.append(request.args)
-    return 'Student added succesfully'
+    students.append(request.get_json())
+    print(request.get_json())
+    return 'Student added succesfully', 200
 
 @app.route('/update', methods=['PUT', 'GET'])
 def update():
     for student in students:
-        if str(student.get('id')) == request.args.get('id'):
-            student.update(request.args)
+        if str(student.get('id')) == request.get_json().get('id'):
+            student.update(request.get_json())
     return 'Student updated succesfully'
 
 @app.route('/delete', methods=[ 'GET', 'DELETE'])
